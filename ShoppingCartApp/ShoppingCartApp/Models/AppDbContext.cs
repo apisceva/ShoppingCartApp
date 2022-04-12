@@ -37,11 +37,11 @@ namespace ShoppingCartApp.Models
                 ShortDescription = "Rustic Bread",
                 LongDescription =
                     "The products prepared in the oven can contain as ingredients or as traces the following allergens: gluten, crustaceans shellfish, eggs, fish, peanuts, soybean, milk and dairy products, tree nuts, celery, mustard, sesame, sulphites, lupin and molluscan shellfish.",
+                CategoryId = 1,
                 ImageUrl = "",
                 InStock = true,
                 //ImageThumbnailUrl = "",
-                AllergyInformation = ""
-            });
+            }) ;
 
             modelBuilder.Entity<Product>().HasData(new Product
             {
@@ -51,10 +51,10 @@ namespace ShoppingCartApp.Models
                 ShortDescription = "Cherry Tomatoes",
                 LongDescription =
                   "Dulcita cherry on the vine tomatoes",
+                CategoryId = 2,
                 ImageUrl = "",
                 InStock = true,
                 //ImageThumbnailUrl = "",
-                AllergyInformation = ""
             });
 
             modelBuilder.Entity<Product>().HasData(new Product
@@ -64,6 +64,7 @@ namespace ShoppingCartApp.Models
                 Price = 0.38M,
                 ShortDescription = "Piece 210 g approx. | 1,79 €/kg",
                 LongDescription = " ",
+                CategoryId = 3,
                 ImageUrl = "",
                 InStock = true,
                 /*ImageThumbnailUrl*/
@@ -76,6 +77,7 @@ namespace ShoppingCartApp.Models
                 Price = 1.84M,
                 ShortDescription = "Coca-Cola soft drink, 2L",
                 LongDescription = " ",
+                CategoryId = 4,
                 ImageUrl = "",
                 InStock = true,  
                 /*ImageThumbnailUrl*/
@@ -88,6 +90,7 @@ namespace ShoppingCartApp.Models
                 Price = 3.54M,
                 ShortDescription = "Tray 530 g approx. | 6,67 €/kg",
                 LongDescription = " ",
+                CategoryId = 5,
                 ImageUrl = "",
                 InStock = true,  
                 /*ImageThumbnailUrl*/
@@ -100,6 +103,7 @@ namespace ShoppingCartApp.Models
                 Price = 1.48M,
                 ShortDescription = "Package 207 g | 7,15 €/kg",
                 LongDescription = " ",
+                CategoryId = 6,
                 ImageUrl = "",
                 InStock = true,  
                 /*ImageThumbnailUrl*/

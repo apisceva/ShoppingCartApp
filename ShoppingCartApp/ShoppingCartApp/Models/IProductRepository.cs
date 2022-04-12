@@ -8,6 +8,6 @@ namespace ShoppingCartApp.Models
     public interface IProductRepository
     {
         IEnumerable<Product> AllProducts { get; }
-        Product GetProductById(int pieId);
+        Product GetProductById(int productId);
     }
 }

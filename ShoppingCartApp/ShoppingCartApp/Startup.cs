@@ -30,8 +30,9 @@ namespace ShoppingCartApp
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             
-            services.AddScoped<ICategoryRepository, MockCategoryRepository>();
-            services.AddScoped<IProductRepository, MockProductRepository>();
+            
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
 
             services.AddControllersWithViews();//services.AddMvc(); would also work still
 

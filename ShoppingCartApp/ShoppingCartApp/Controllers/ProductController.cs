@@ -28,8 +28,16 @@ namespace ShoppingCartApp.Controllers
             ProductsListViewModel productsListViewModel = new ProductsListViewModel();
             productsListViewModel.Products = _productRepository.AllProducts;
 
-            productsListViewModel.CurrentCategory = "Bakery";
+            productsListViewModel.CurrentCategory = "AllProducts";
             return View(productsListViewModel);
+        }
+        public IActionResult Details(int id)
+        {
+            var product = _productRepository.GetProductById(id);
+            if (product == null)
+                return NotFound();
+
+            return View(product);
         }
     }
 }

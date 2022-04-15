@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ShoppingCartApp.Models;
+using ShoppingCartApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

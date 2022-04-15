@@ -20,17 +20,42 @@ namespace ShoppingCartApp.Controllers
         }
 
         // GET: /<controller>/
-        public IActionResult List()
+        //public IActionResult List()
+        //{
+        //    //ViewBag.CurrentCategory = "Bakery";
+
+        //    //return View(_productRepository.AllProducts);
+        //    ProductsListViewModel productsListViewModel = new ProductsListViewModel();
+        //    productsListViewModel.Products = _productRepository.AllProducts;
+
+        //    productsListViewModel.CurrentCategory = "AllProducts";
+        //    return View(productsListViewModel);
+        //}
+        public ViewResult List(string category)
         {
-            //ViewBag.CurrentCategory = "Bakery";
+            IEnumerable<Product> products;
+            string currentCategory;
 
-            //return View(_productRepository.AllProducts);
-            ProductsListViewModel productsListViewModel = new ProductsListViewModel();
-            productsListViewModel.Products = _productRepository.AllProducts;
+            if (string.IsNullOrEmpty(category))
+            {
+                products = _productRepository.AllProducts.OrderBy(p => p.ProductId);
+                currentCategory = "All products";
+            }
+            else
+            {
+                products = _productRepository.AllProducts.Where(p => p.Category.CategoryName == category)
+                    .OrderBy(p => p.ProductId);
+                currentCategory = _categoryRepository.AllCategories.FirstOrDefault(c => c.CategoryName == category)?.CategoryName;
+            }
 
-            productsListViewModel.CurrentCategory = "AllProducts";
-            return View(productsListViewModel);
+            return View(new ProductsListViewModel
+            {
+                Products = products,
+                CurrentCategory = currentCategory
+            });
         }
+
+
         public IActionResult Details(int id)
         {
             var product = _productRepository.GetProductById(id);

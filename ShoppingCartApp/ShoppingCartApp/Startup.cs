@@ -34,11 +34,12 @@ namespace ShoppingCartApp
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
 
+            services.AddScoped<IProductListRepository, ProductListRepository>();
+
             services.AddScoped<ShoppingCart>(sp => ShoppingCart.GetCart(sp));
 
             services.AddHttpContextAccessor();
             services.AddSession();
-
             services.AddControllersWithViews();//services.AddMvc(); would also work still
 
             services.AddControllersWithViews(x => x.SuppressAsyncSuffixInActionNames = false)
@@ -58,6 +59,7 @@ namespace ShoppingCartApp
             app.UseSession();
 
             app.UseRouting();
+            app.UseAuthentication();
 
 
 

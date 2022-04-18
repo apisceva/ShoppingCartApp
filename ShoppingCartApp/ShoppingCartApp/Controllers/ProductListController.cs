@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ShoppingCartApp.Models;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace ShoppingCartApp.Controllers
 {
+    [Authorize]
     public class ProductListController : Controller
     {
         private readonly IProductListRepository _productListRepository;
@@ -46,7 +48,7 @@ namespace ShoppingCartApp.Controllers
 
         public IActionResult CheckoutComplete()
         {
-            ViewBag.CheckoutCompleteMessage = "Thanks! Your product list is ready!";
+            ViewBag.CheckoutCompleteMessage = "Thank you! Your product list is ready!";
             return View();
         }
     }

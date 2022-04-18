@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,8 +30,8 @@ namespace ShoppingCartApp
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            
-            
+            services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<AppDbContext>();
+
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
 
@@ -41,6 +42,7 @@ namespace ShoppingCartApp
             services.AddHttpContextAccessor();
             services.AddSession();
             services.AddControllersWithViews();//services.AddMvc(); would also work still
+            services.AddRazorPages();
 
             services.AddControllersWithViews(x => x.SuppressAsyncSuffixInActionNames = false)
             .AddRazorRuntimeCompilation();
@@ -60,6 +62,7 @@ namespace ShoppingCartApp
 
             app.UseRouting();
             app.UseAuthentication();
+            app.UseAuthorization();
 
 
 
@@ -68,6 +71,8 @@ namespace ShoppingCartApp
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapRazorPages();
             });
         }
     }

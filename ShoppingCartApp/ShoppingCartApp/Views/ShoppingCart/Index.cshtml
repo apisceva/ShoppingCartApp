@@ -6,7 +6,7 @@
     <thead>
         <tr>
             <th>Selected amount</th>
-            <th>Product</th>
+            <th>Pie</th>
             <th class="text-right">Price</th>
             <th class="text-right">Subtotal</th>
         </tr>
@@ -14,14 +14,14 @@
     <tbody>
         @foreach (var line in Model.ShoppingCart.ShoppingCartItems)
         {
-            <tr>
-                <td class="text-center">@line.Amount</td>
-                <td class="text-left">@line.Product.Name</td>
-                <td class="text-right">@line.Product.Price.ToString("c")</td>
-                <td class="text-right">
-                    @((line.Amount * line.Product.Price).ToString("c"))
-                </td>
-            </tr>
+        <tr>
+            <td class="text-center">@line.Amount</td>
+            <td class="text-left">@line.Product.Name</td>
+            <td class="text-right">@line.Product.Price.ToString("c")</td>
+            <td class="text-right">
+                @((line.Amount * line.Product.Price).ToString("c"))
+            </td>
+        </tr>
         }
     </tbody>
     <tfoot>
@@ -33,3 +33,8 @@
         </tr>
     </tfoot>
 </table>
+
+
+<div class="text-center">
+    <a class="btn btn-primary" asp-controller="ProductList" asp-action="Checkout">Check out now!</a>
+</div>

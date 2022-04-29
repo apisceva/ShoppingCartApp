@@ -61,31 +61,22 @@ namespace ShoppingCartApp.Controllers
                 _productRepository.AddNewProduct(p);
                 _productRepository.SaveChanges();
 
+                return RedirectToAction("ProductCreated");
+
             }
             return View(newProduct);
         }
 
-        
-        //public ActionResult _ListPartial()
-        //{
-        //    return View();
-        //}
 
         public IActionResult ProductCreated()
         {
             ViewBag.ProductCreatedMessage = "Thank you! Your product is created!";
             return View();
         }
+    }
+}
 
     
 
         
 
-
-        //[HttpPost]
-        //public ActionResult Edit(NewProductViewModel newProduct)
-        //{
-        //   return RedirectToAction("Index");
-        //}
-    }
-}

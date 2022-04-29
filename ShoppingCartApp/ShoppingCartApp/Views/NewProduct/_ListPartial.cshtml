@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Category>
+
+<li class="dropdown">
+    <a asp-controller="NewProduct"
+       asp-action="Index"
+       class="dropdown-toggle" data-toggle="dropdown">Products<b class="caret"></b></a>
+    <ul class="dropdown-menu">
+        @foreach (var category in Model)
+        {
+            <li>
+                <a asp-controller="NewProduct" asp-action="List"
+                   asp-route-category="@category.CategoryName">@category.CategoryName</a>
+            </li>
+        }
+        <li class="divider"></li>
+        <li>
+            <a asp-controller="NewProduct" asp-action="List" asp-route-Category="">View all products</a>
+        </li>
+    </ul>
+</li>
+
+
+@*@{
+        List<SelectListItem> selectionList = new List<SelectListItem>();
+        selectionList.Add(new SelectListItem { Text = "Bakery" });
+        selectionList.Add(new SelectListItem { Text = "Fruits" });
+        selectionList.Add(new SelectListItem { Text = "Vegetables" });
+        selectionList.Add(new SelectListItem { Text = "Drinks" });
+        selectionList.Add(new SelectListItem { Text = "Meat" });
+        selectionList.Add(new SelectListItem { Text = "Snacks" });
+ }
+
+    @Html.DropDownList("Selection List", selectionList, "Select", htmlAttributes: new { @id = "dropdown"})*@
+

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShoppingCartApp.Models;
 
 namespace ShoppingCartApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220420112208_ImageThumbnailUrlAdded")]
+    partial class ImageThumbnailUrlAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -275,37 +277,6 @@ namespace ShoppingCartApp.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ShoppingCartApp.Models.NewProduct", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("LongDescription")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(500)")
-                        .HasMaxLength(500);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
-                    b.Property<string>("ProductPicture")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ShortDescription")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("NewProducts");
-                });
-
             modelBuilder.Entity("ShoppingCartApp.Models.Product", b =>
                 {
                     b.Property<int>("ProductId")
@@ -348,8 +319,7 @@ namespace ShoppingCartApp.Migrations
                         {
                             ProductId = 1,
                             CategoryId = 1,
-                            ImageThumbnailUrl = "\\Images\\breadsmall.jpg",
-                            ImageUrl = "\\Images\\bread.png",
+                            ImageUrl = "",
                             InStock = true,
                             LongDescription = "The products prepared in the oven can contain as ingredients or as traces the following allergens: gluten, crustaceans shellfish, eggs, fish, peanuts, soybean, milk and dairy products, tree nuts, celery, mustard, sesame, sulphites, lupin and molluscan shellfish.",
                             Name = "Rustic Bread",
@@ -360,8 +330,7 @@ namespace ShoppingCartApp.Migrations
                         {
                             ProductId = 2,
                             CategoryId = 2,
-                            ImageThumbnailUrl = "\\Images\\cherrysmall.jpg",
-                            ImageUrl = "\\Images\\cherry.jpg",
+                            ImageUrl = "",
                             InStock = true,
                             LongDescription = "Dulcita cherry on the vine tomatoes",
                             Name = "Cherry Tomatoes",
@@ -372,8 +341,7 @@ namespace ShoppingCartApp.Migrations
                         {
                             ProductId = 3,
                             CategoryId = 3,
-                            ImageThumbnailUrl = "\\Images\\applesmall.jpg",
-                            ImageUrl = "\\Images\\apple.jpg",
+                            ImageUrl = "",
                             InStock = true,
                             LongDescription = " ",
                             Name = "Golden Apple",
@@ -384,8 +352,7 @@ namespace ShoppingCartApp.Migrations
                         {
                             ProductId = 4,
                             CategoryId = 4,
-                            ImageThumbnailUrl = "\\Images\\colasmall.jpg",
-                            ImageUrl = "\\Images\\colasmall.jpg",
+                            ImageUrl = "",
                             InStock = true,
                             LongDescription = " ",
                             Name = "Coca-Cola",
@@ -396,8 +363,7 @@ namespace ShoppingCartApp.Migrations
                         {
                             ProductId = 5,
                             CategoryId = 5,
-                            ImageThumbnailUrl = "\\Images\\porksmall.jpg",
-                            ImageUrl = "\\Images\\pork.jpg",
+                            ImageUrl = "",
                             InStock = true,
                             LongDescription = " ",
                             Name = "Fleshy chunks pork ribs",
@@ -408,8 +374,7 @@ namespace ShoppingCartApp.Migrations
                         {
                             ProductId = 6,
                             CategoryId = 6,
-                            ImageThumbnailUrl = "\\Images\\layssmall.jpg",
-                            ImageUrl = "\\Images\\lays.jpg",
+                            ImageUrl = "",
                             InStock = true,
                             LongDescription = " ",
                             Name = "Lay's Ready salted crisps",

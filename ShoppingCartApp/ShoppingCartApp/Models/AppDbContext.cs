@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using ShoppingCartApp.ViewModels;
 
 namespace ShoppingCartApp.Models
 {
@@ -39,9 +40,9 @@ namespace ShoppingCartApp.Models
                 LongDescription =
                     "The products prepared in the oven can contain as ingredients or as traces the following allergens: gluten, crustaceans shellfish, eggs, fish, peanuts, soybean, milk and dairy products, tree nuts, celery, mustard, sesame, sulphites, lupin and molluscan shellfish.",
                 CategoryId = 1,
-                ImageUrl = "",
+                ImageUrl = "\\Images\\bread.png",
                 InStock = true,
-                //ImageThumbnailUrl = "",
+                ImageThumbnailUrl = "\\Images\\breadsmall.jpg",
             }) ;
 
             modelBuilder.Entity<Product>().HasData(new Product
@@ -53,9 +54,9 @@ namespace ShoppingCartApp.Models
                 LongDescription =
                   "Dulcita cherry on the vine tomatoes",
                 CategoryId = 2,
-                ImageUrl = "",
+                ImageUrl = "\\Images\\cherry.jpg",
                 InStock = true,
-                //ImageThumbnailUrl = "",
+                ImageThumbnailUrl = "\\Images\\cherrysmall.jpg",
             });
 
             modelBuilder.Entity<Product>().HasData(new Product
@@ -66,9 +67,9 @@ namespace ShoppingCartApp.Models
                 ShortDescription = "Piece 210 g approx. | 1,79 €/kg",
                 LongDescription = " ",
                 CategoryId = 3,
-                ImageUrl = "",
+                ImageUrl = "\\Images\\apple.jpg",
                 InStock = true,
-                /*ImageThumbnailUrl*/
+                ImageThumbnailUrl = "\\Images\\applesmall.jpg",
             });
 
             modelBuilder.Entity<Product>().HasData(new Product
@@ -79,9 +80,9 @@ namespace ShoppingCartApp.Models
                 ShortDescription = "Coca-Cola soft drink, 2L",
                 LongDescription = " ",
                 CategoryId = 4,
-                ImageUrl = "",
-                InStock = true,  
-                /*ImageThumbnailUrl*/
+                ImageUrl = "\\Images\\colasmall.jpg",
+                InStock = true,
+                ImageThumbnailUrl = "\\Images\\colasmall.jpg",
             });
 
             modelBuilder.Entity<Product>().HasData(new Product
@@ -92,9 +93,9 @@ namespace ShoppingCartApp.Models
                 ShortDescription = "Tray 530 g approx. | 6,67 €/kg",
                 LongDescription = " ",
                 CategoryId = 5,
-                ImageUrl = "",
-                InStock = true,  
-                /*ImageThumbnailUrl*/
+                ImageUrl = "\\Images\\pork.jpg",
+                InStock = true,
+                ImageThumbnailUrl = "\\Images\\porksmall.jpg",
             });
 
             modelBuilder.Entity<Product>().HasData(new Product
@@ -105,9 +106,9 @@ namespace ShoppingCartApp.Models
                 ShortDescription = "Package 207 g | 7,15 €/kg",
                 LongDescription = " ",
                 CategoryId = 6,
-                ImageUrl = "",
-                InStock = true,  
-                /*ImageThumbnailUrl*/
+                ImageUrl = "\\Images\\lays.jpg",
+                InStock = true,
+                ImageThumbnailUrl = "\\Images\\layssmall.jpg",
 
             });
 

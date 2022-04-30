@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ShoppingCartApp.Models;
-using System;
-using System.Collections.Generic;
+using ShoppingCartApp.Repository.Interfaces;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace ShoppingCartApp.Components
 {

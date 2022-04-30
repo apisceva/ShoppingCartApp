@@ -1,11 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ShoppingCartApp.ViewModels;
-using System;
+using ShoppingCartApp.Repository.Entities;
+using ShoppingCartApp.Repository.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
-namespace ShoppingCartApp.Models
+namespace ShoppingCartApp.Repository.Repositories
 {
     public class ProductRepository : IProductRepository
     {
@@ -32,7 +31,7 @@ namespace ShoppingCartApp.Models
 
         public void AddNewProduct(Product newProduct)
         {
-           // newProduct.NewProductAdded = DateTime.Now;
+            // newProduct.NewProductAdded = DateTime.Now;
             _appDbContext.Products.Add(newProduct);
         }
 

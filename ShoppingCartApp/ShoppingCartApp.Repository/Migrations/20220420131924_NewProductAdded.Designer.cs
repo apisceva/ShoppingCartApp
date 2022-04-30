@@ -4,20 +4,19 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ShoppingCartApp.Models;
+using ShoppingCartApp.Repository;
 
 namespace ShoppingCartApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220418130737_Identity")]
-    partial class Identity
+    [Migration("20220420131924_NewProductAdded")]
+    partial class NewProductAdded
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.0.0")
+                .HasAnnotation("ProductVersion", "3.1.24")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -164,10 +163,12 @@ namespace ShoppingCartApp.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(128)")
+                        .HasMaxLength(128);
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(128)")
+                        .HasMaxLength(128);
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -204,10 +205,12 @@ namespace ShoppingCartApp.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(128)")
+                        .HasMaxLength(128);
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(128)")
+                        .HasMaxLength(128);
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -273,6 +276,37 @@ namespace ShoppingCartApp.Migrations
                         });
                 });
 
+            modelBuilder.Entity("ShoppingCartApp.Models.NewProduct", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("LongDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(500)")
+                        .HasMaxLength(500);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("ProductPicture")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ShortDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("NewProducts");
+                });
+
             modelBuilder.Entity("ShoppingCartApp.Models.Product", b =>
                 {
                     b.Property<int>("ProductId")
@@ -282,6 +316,9 @@ namespace ShoppingCartApp.Migrations
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
+
+                    b.Property<string>("ImageThumbnailUrl")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
@@ -312,7 +349,8 @@ namespace ShoppingCartApp.Migrations
                         {
                             ProductId = 1,
                             CategoryId = 1,
-                            ImageUrl = "",
+                            ImageThumbnailUrl = "\\Images\\breadsmall.jpg",
+                            ImageUrl = "\\Images\\bread.png",
                             InStock = true,
                             LongDescription = "The products prepared in the oven can contain as ingredients or as traces the following allergens: gluten, crustaceans shellfish, eggs, fish, peanuts, soybean, milk and dairy products, tree nuts, celery, mustard, sesame, sulphites, lupin and molluscan shellfish.",
                             Name = "Rustic Bread",
@@ -323,7 +361,8 @@ namespace ShoppingCartApp.Migrations
                         {
                             ProductId = 2,
                             CategoryId = 2,
-                            ImageUrl = "",
+                            ImageThumbnailUrl = "\\Images\\cherrysmall.jpg",
+                            ImageUrl = "\\Images\\cherry.jpg",
                             InStock = true,
                             LongDescription = "Dulcita cherry on the vine tomatoes",
                             Name = "Cherry Tomatoes",
@@ -334,7 +373,8 @@ namespace ShoppingCartApp.Migrations
                         {
                             ProductId = 3,
                             CategoryId = 3,
-                            ImageUrl = "",
+                            ImageThumbnailUrl = "\\Images\\applesmall.jpg",
+                            ImageUrl = "\\Images\\apple.jpg",
                             InStock = true,
                             LongDescription = " ",
                             Name = "Golden Apple",
@@ -345,7 +385,8 @@ namespace ShoppingCartApp.Migrations
                         {
                             ProductId = 4,
                             CategoryId = 4,
-                            ImageUrl = "",
+                            ImageThumbnailUrl = "\\Images\\colasmall.jpg",
+                            ImageUrl = "\\Images\\colasmall.jpg",
                             InStock = true,
                             LongDescription = " ",
                             Name = "Coca-Cola",
@@ -356,7 +397,8 @@ namespace ShoppingCartApp.Migrations
                         {
                             ProductId = 5,
                             CategoryId = 5,
-                            ImageUrl = "",
+                            ImageThumbnailUrl = "\\Images\\porksmall.jpg",
+                            ImageUrl = "\\Images\\pork.jpg",
                             InStock = true,
                             LongDescription = " ",
                             Name = "Fleshy chunks pork ribs",
@@ -367,7 +409,8 @@ namespace ShoppingCartApp.Migrations
                         {
                             ProductId = 6,
                             CategoryId = 6,
-                            ImageUrl = "",
+                            ImageThumbnailUrl = "\\Images\\layssmall.jpg",
+                            ImageUrl = "\\Images\\lays.jpg",
                             InStock = true,
                             LongDescription = " ",
                             Name = "Lay's Ready salted crisps",

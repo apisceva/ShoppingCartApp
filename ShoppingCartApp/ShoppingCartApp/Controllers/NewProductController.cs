@@ -1,13 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using ShoppingCartApp.Models;
+using ShoppingCartApp.Repository.Entities;
+using ShoppingCartApp.Repository.Interfaces;
 using ShoppingCartApp.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace ShoppingCartApp.Controllers
 {

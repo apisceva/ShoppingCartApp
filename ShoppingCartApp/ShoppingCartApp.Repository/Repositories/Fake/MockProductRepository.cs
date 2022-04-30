@@ -1,10 +1,10 @@
-﻿using ShoppingCartApp.ViewModels;
+﻿using ShoppingCartApp.Repository.Entities;
+using ShoppingCartApp.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
-namespace ShoppingCartApp.Models
+namespace ShoppingCartApp.Repository.Repositories.Fake
 {
     public class MockProductRepository : IProductRepository
     {
@@ -28,7 +28,7 @@ namespace ShoppingCartApp.Models
             throw new NotImplementedException();
         }
 
- 
+
 
         public Product GetProductById(int productId)
         {
@@ -40,6 +40,6 @@ namespace ShoppingCartApp.Models
             throw new NotImplementedException();
         }
     }
-  
+
 }
 

@@ -1,11 +1,10 @@
-﻿using System;
+﻿using ShoppingCartApp.Repository.Entities;
+using ShoppingCartApp.Repository.Interfaces;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace ShoppingCartApp.Models
+namespace ShoppingCartApp.Repository.Repositories
 {
-    public class CategoryRepository: ICategoryRepository
+    public class CategoryRepository : ICategoryRepository
     {
         private readonly AppDbContext _appDbContext;
         public CategoryRepository(AppDbContext appDbContext)

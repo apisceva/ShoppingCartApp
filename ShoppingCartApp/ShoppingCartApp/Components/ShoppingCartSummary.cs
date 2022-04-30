@@ -1,10 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ShoppingCartApp.Models;
+using ShoppingCartApp.Repository.Entities;
 using ShoppingCartApp.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ShoppingCartApp.Components
 {

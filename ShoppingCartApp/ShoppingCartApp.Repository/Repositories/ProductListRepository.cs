@@ -1,11 +1,11 @@
-﻿using System;
+﻿using ShoppingCartApp.Repository.Entities;
+using ShoppingCartApp.Repository.Interfaces;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace ShoppingCartApp.Models
+namespace ShoppingCartApp.Repository.Repositories
 {
-    public class ProductListRepository: IProductListRepository
+    public class ProductListRepository : IProductListRepository
     {
         private readonly AppDbContext _appDbContext;
         private readonly ShoppingCart _shoppingCart;
@@ -36,11 +36,11 @@ namespace ShoppingCartApp.Models
                     ProductListId = productList.ProductListId,
                     Price = shoppingCartItem.Product.Price
                 };
-            
+
                 _appDbContext.ProductLists.Add(productList);
             }
 
-            
+
 
             _appDbContext.SaveChanges();
         }

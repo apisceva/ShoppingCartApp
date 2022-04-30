@@ -1,10 +1,7 @@
-﻿using ShoppingCartApp.ViewModels;
-using System;
+﻿using ShoppingCartApp.Repository.Entities;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace ShoppingCartApp.Models
+namespace ShoppingCartApp.Repository.Interfaces
 {
     public interface IProductRepository
     {

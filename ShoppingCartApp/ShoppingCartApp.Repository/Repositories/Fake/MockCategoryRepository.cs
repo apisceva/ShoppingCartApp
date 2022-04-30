@@ -1,11 +1,10 @@
-﻿using System;
+﻿using ShoppingCartApp.Repository.Entities;
+using ShoppingCartApp.Repository.Interfaces;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace ShoppingCartApp.Models
+namespace ShoppingCartApp.Repository.Repositories.Fake
 {
-    public class MockCategoryRepository: ICategoryRepository
+    public class MockCategoryRepository : ICategoryRepository
     {
         public IEnumerable<Category> AllCategories =>
             new List<Category>

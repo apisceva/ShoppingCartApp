@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using ShoppingCartApp.ViewModels;
+using ShoppingCartApp.Repository.Entities;
 
-namespace ShoppingCartApp.Models
+namespace ShoppingCartApp.Repository
 {
     public class AppDbContext : IdentityDbContext<IdentityUser>
     {
@@ -43,7 +43,7 @@ namespace ShoppingCartApp.Models
                 ImageUrl = "\\Images\\bread.png",
                 InStock = true,
                 ImageThumbnailUrl = "\\Images\\breadsmall.jpg",
-            }) ;
+            });
 
             modelBuilder.Entity<Product>().HasData(new Product
             {

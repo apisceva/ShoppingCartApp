@@ -6,7 +6,7 @@ namespace ShoppingCartApp.Repository.Repositories.Fake
 {
     public class MockCategoryRepository : ICategoryRepository
     {
-        public IEnumerable<Category> AllCategories =>
+        public IEnumerable<Category> GetAllCategories =>
             new List<Category>
             {
                 new Category{CategoryId=1, CategoryName="Bakery", Description="Bakery Products"},

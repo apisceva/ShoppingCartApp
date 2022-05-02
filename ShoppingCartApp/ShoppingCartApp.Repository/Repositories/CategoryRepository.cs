@@ -11,6 +11,6 @@ namespace ShoppingCartApp.Repository.Repositories
         {
             _appDbContext = appDbContext;
         }
-        public IEnumerable<Category> AllCategories => _appDbContext.Categories;
+        public IEnumerable<Category> GetAllCategories => _appDbContext.Categories;
     }
 }

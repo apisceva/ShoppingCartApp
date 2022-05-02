@@ -44,7 +44,7 @@ namespace ShoppingCartApp.Controllers
             {
                 products = _productRepository.AllProducts.Where(p => p.Category.CategoryName == category)
                     .OrderBy(p => p.ProductId);
-                currentCategory = _categoryRepository.AllCategories.FirstOrDefault(c => c.CategoryName == category)?.CategoryName;
+                currentCategory = _categoryRepository.GetAllCategories.FirstOrDefault(c => c.CategoryName == category)?.CategoryName;
             }
 
             return View(new ProductsListViewModel

@@ -1,40 +1,26 @@
-﻿@*@model IEnumerable<Product>
+﻿@model IEnumerable<Product>
 
-@{
-    Layout = null;
-}
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
     <h4>Products</h4>
-    <hr />
-    <table cellpadding="0" cellspacing="0">
-        <tr>
-            <th>ProductID</th>
-            <th>Name</th>
-            <th>Category</th>
-            <th>CategoryID</th>
-            <th>ShortDescription</th>
-            <th>LongDescription</th>
-            <th>Price</th>
-        </tr>
-        @foreach (Product product in Model)
-        {
-    <tr>
-        <td>@product.ProductId</td>
-        <td>@product.Name</td>
-        <td>@product.Category</td>
-        <td>@product.CategoryId</td>
-        <td>@product.ShortDescription</td>
-        <td>@product.LongDescription</td>
-        <td>@product.Price</td>
-    </tr>
-        }
+    <table class="table table-bordered table-striped">
+        
+            <tr>
+                <th>ProductID</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>CategoryID</th>
+                <th>ShortDescription</th>
+                <th>Price</th>
+            </tr>
+            @foreach (Product product in Model)
+            {
+                <tr>
+                    <td>@product.ProductId</td>
+                    <td>@product.Name</td>
+                    <td>@product.Category.CategoryName</td>
+                    <td>@product.CategoryId</td>
+                    <td>@product.ShortDescription</td>
+                    <td>@product.Price</td>
+                </tr>
+            }
     </table>
-</body>
-</html>*@

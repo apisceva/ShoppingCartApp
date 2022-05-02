@@ -23,7 +23,12 @@ namespace ShoppingCartApp.Controllers
 
         public ActionResult Index()
         {
-            var allCategories = _categoryRepository.AllCategories.ToList();
+            return SetCategories();
+        }
+
+        private ActionResult SetCategories()
+        {
+            var allCategories = _categoryRepository.GetAllCategories.ToList();
 
             var categoryListItems = allCategories.Select(t =>
             {
@@ -33,6 +38,13 @@ namespace ShoppingCartApp.Controllers
                     Value = t.CategoryId.ToString()
                 };
             }).ToList();
+
+            var emptySelectListItem = new SelectListItem
+            {
+                Text = "Please select category",
+                Value = 0.ToString()
+            };
+            categoryListItems = categoryListItems.Prepend(emptySelectListItem).ToList();
 
             TempData["Categories"] = categoryListItems;
 
@@ -60,7 +72,8 @@ namespace ShoppingCartApp.Controllers
                 return RedirectToAction("ProductCreated");
 
             }
-            return View(newProduct);
+            SetCategories();
+            return View("Index", newProduct);
         }
 
 

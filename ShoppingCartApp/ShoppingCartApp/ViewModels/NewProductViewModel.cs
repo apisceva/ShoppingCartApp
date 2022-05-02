@@ -16,7 +16,7 @@ namespace ShoppingCartApp.ViewModels
         [StringLength(50)]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Please enter category of product")]
+        [Range(1, int.MaxValue, ErrorMessage = "Please enter category of product")]
         [Display(Name = "Category")]
         public int CategoryID { get; set; }
         

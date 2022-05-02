@@ -14,7 +14,7 @@ namespace ShoppingCartApp.Components
 
         public IViewComponentResult Invoke()
         {
-            var categories = _categoryRepository.AllCategories.OrderBy(c => c.CategoryName);
+            var categories = _categoryRepository.GetAllCategories.OrderBy(c => c.CategoryName);
             return View(categories);
         }
     }

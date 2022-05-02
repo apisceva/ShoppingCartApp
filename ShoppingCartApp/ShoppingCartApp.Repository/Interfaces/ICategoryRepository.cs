@@ -6,6 +6,6 @@ namespace ShoppingCartApp.Repository.Interfaces
 {
     public interface ICategoryRepository
     {
-        IEnumerable<Category> AllCategories { get; }
+        IEnumerable<Category> GetAllCategories { get; }
     }
 }

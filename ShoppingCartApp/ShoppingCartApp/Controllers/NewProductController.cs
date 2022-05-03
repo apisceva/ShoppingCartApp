@@ -64,6 +64,7 @@ namespace ShoppingCartApp.Controllers
                     ShortDescription = newProduct.ShortDescription,
                     LongDescription = newProduct.LongDescription,
                     Price = newProduct.Price
+                   
                 };
 
                 _productRepository.AddNewProduct(p);

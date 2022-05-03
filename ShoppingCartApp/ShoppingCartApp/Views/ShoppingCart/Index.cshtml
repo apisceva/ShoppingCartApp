@@ -6,7 +6,7 @@
     <thead>
         <tr>
             <th>Selected amount</th>
-            <th>Pie</th>
+            <th>Product</th>
             <th class="text-right">Price</th>
             <th class="text-right">Subtotal</th>
         </tr>
@@ -20,6 +20,13 @@
             <td class="text-right">@line.Product.Price.ToString("c")</td>
             <td class="text-right">
                 @((line.Amount * line.Product.Price).ToString("c"))
+            </td>
+            <td class="RemoveFromCart">
+                <p class="button">
+                    <a class="btn btn-primary" asp-controller="ShoppingCart" asp-action="RemoveFromCart"
+                       asp-route-shoppingCartItemId="@line.ShoppingCartItemId">
+                       Delete</a>
+                </p>
             </td>
         </tr>
         }

@@ -42,15 +42,18 @@ namespace ShoppingCartApp.Controllers
             return RedirectToAction("Index");
         }
 
-        public RedirectToActionResult RemoveFromShoppingCart(int productId)
+        public RedirectToActionResult RemoveFromCart(int shoppingCartItemId)
         {
-            var selectedProduct = _productRepository.AllProducts.FirstOrDefault(p => p.ProductId == productId);
+            //var selectedShoppingCartItem = _shoppingCart.ShoppingCartItems.FirstOrDefault(s => s.ShoppingCartItemId == shoppingCartItemId);
 
-            if (selectedProduct != null)
-            {
-                _shoppingCart.RemoveFromCart(selectedProduct);
-            }
+            //if (selectedShoppingCartItem != null)
+            //{
+                
+            //}
+            _shoppingCart.RemoveFromCart(shoppingCartItemId);
             return RedirectToAction("Index");
         }
+
+
     }
 }

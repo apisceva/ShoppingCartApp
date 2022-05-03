@@ -83,6 +83,18 @@ namespace ShoppingCartApp.Repository.Entities
 
             return localAmount;
         }
+        public void RemoveFromCart(int shoppingCartItemId)
+        {
+            var shoppingCartItem =
+                    _appDbContext.ShoppingCartItems.SingleOrDefault(
+                        s => s.ShoppingCartItemId == shoppingCartItemId);
+
+            if (shoppingCartItem != null)
+            {
+                _appDbContext.Remove(shoppingCartItem);
+                _appDbContext.SaveChanges();
+            }           
+        }
 
         public List<ShoppingCartItem> GetShoppingCartItems()
         {

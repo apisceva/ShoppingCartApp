@@ -41,7 +41,6 @@ namespace ShoppingCartApp.Repository
                     "The products prepared in the oven can contain as ingredients or as traces the following allergens: gluten, crustaceans shellfish, eggs, fish, peanuts, soybean, milk and dairy products, tree nuts, celery, mustard, sesame, sulphites, lupin and molluscan shellfish.",
                 CategoryId = 1,
                 ImageUrl = "\\Images\\bread.png",
-                InStock = true,
                 ImageThumbnailUrl = "\\Images\\breadsmall.jpg",
             });
 
@@ -55,7 +54,6 @@ namespace ShoppingCartApp.Repository
                   "Dulcita cherry on the vine tomatoes",
                 CategoryId = 2,
                 ImageUrl = "\\Images\\cherry.jpg",
-                InStock = true,
                 ImageThumbnailUrl = "\\Images\\cherrysmall.jpg",
             });
 
@@ -68,7 +66,6 @@ namespace ShoppingCartApp.Repository
                 LongDescription = " ",
                 CategoryId = 3,
                 ImageUrl = "\\Images\\apple.jpg",
-                InStock = true,
                 ImageThumbnailUrl = "\\Images\\applesmall.jpg",
             });
 
@@ -81,7 +78,6 @@ namespace ShoppingCartApp.Repository
                 LongDescription = " ",
                 CategoryId = 4,
                 ImageUrl = "\\Images\\colasmall.jpg",
-                InStock = true,
                 ImageThumbnailUrl = "\\Images\\colasmall.jpg",
             });
 
@@ -94,7 +90,6 @@ namespace ShoppingCartApp.Repository
                 LongDescription = " ",
                 CategoryId = 5,
                 ImageUrl = "\\Images\\pork.jpg",
-                InStock = true,
                 ImageThumbnailUrl = "\\Images\\porksmall.jpg",
             });
 
@@ -107,7 +102,6 @@ namespace ShoppingCartApp.Repository
                 LongDescription = " ",
                 CategoryId = 6,
                 ImageUrl = "\\Images\\lays.jpg",
-                InStock = true,
                 ImageThumbnailUrl = "\\Images\\layssmall.jpg",
 
             });

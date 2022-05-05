@@ -1,9 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using ShoppingCartApp.Repository.Entities;
 using ShoppingCartApp.Repository.Interfaces;
 using ShoppingCartApp.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace ShoppingCartApp.Controllers
 {
@@ -30,21 +33,24 @@ namespace ShoppingCartApp.Controllers
         //    productsListViewModel.CurrentCategory = "AllProducts";
         //    return View(productsListViewModel);
         //}
-        public ViewResult List(string category)
+        public ViewResult List(string categoryId, string searchText)
         {
+            SetCategories();
+
+
             IEnumerable<Product> products;
             string currentCategory;
 
-            if (string.IsNullOrEmpty(category))
+            if (string.IsNullOrEmpty(categoryId))
             {
                 products = _productRepository.AllProducts.OrderBy(p => p.ProductId);
                 currentCategory = "All products";
             }
             else
             {
-                products = _productRepository.AllProducts.Where(p => p.Category.CategoryName == category)
+                products = _productRepository.AllProducts.Where(p => p.CategoryId.ToString() == categoryId)
                     .OrderBy(p => p.ProductId);
-                currentCategory = _categoryRepository.GetAllCategories.FirstOrDefault(c => c.CategoryName == category)?.CategoryName;
+                currentCategory = _categoryRepository.GetAllCategories.FirstOrDefault(c => c.CategoryName == categoryId)?.CategoryName;
             }
 
             return View(new ProductsListViewModel
@@ -63,5 +69,28 @@ namespace ShoppingCartApp.Controllers
 
             return View(product);
         }
+        private void SetCategories()
+        {
+            var allCategories = _categoryRepository.GetAllCategories.ToList();
+
+            var categoryListItems = allCategories.Select(t =>
+            {
+                return new SelectListItem
+                {
+                    Text = t.CategoryName,
+                    Value = t.CategoryId.ToString()
+                };
+            }).ToList();
+
+            var emptySelectListItem = new SelectListItem
+            {
+                Text = "Please select category",
+                Value = 0.ToString()
+            };
+            categoryListItems = categoryListItems.Prepend(emptySelectListItem).ToList();
+
+            TempData["Categories"] = categoryListItems;
+        }
+
     }
 }

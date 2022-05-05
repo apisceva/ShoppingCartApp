@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ShoppingCartApp.Repository.Interfaces;
 using ShoppingCartApp.ViewModels;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace ShoppingCartApp.Controllers
 {
@@ -22,5 +25,7 @@ namespace ShoppingCartApp.Controllers
 
             return View(homeViewModel);
         }
+
+        
     }
 }

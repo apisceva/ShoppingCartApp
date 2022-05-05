@@ -3,6 +3,21 @@
 
 <h1>@Model.CurrentCategory</h1>
 
+
+@using (Html.BeginForm("List", "Product", FormMethod.Get))
+{
+
+    <p class="col-md-offset-2 col-md-5">
+        @Html.TextBox("searchText", ViewBag.CurrentFilter as string)
+
+        @Html.DropDownList("category", (IEnumerable
+            <SelectListItem>)TempData["Categories"])
+        <input type="submit" class="btn btn-primary" value="Search" />
+    </p>
+
+}
+
+
 @foreach (var product in Model.Products)
 {
     <partial name="_ProductCard" model="product" />

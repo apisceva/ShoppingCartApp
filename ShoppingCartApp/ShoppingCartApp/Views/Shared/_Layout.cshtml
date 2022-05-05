@@ -31,11 +31,18 @@
                         @await Component.InvokeAsync("ShoppingCartSummary")
                         <partial name="_LoginPartial" />
                         <li><a asp-controller="NewProduct" asp-action="Index">Add new product</a></li>
-                        <li><a asp-controller="AllProduct" asp-action="Index">All Product List</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
+
+
+        @*<form asp-controller="Product" asp-action="Search" method="get">
+            <p>
+                <input type="text" name="SearchString" />
+                <input type="submit" value="Filter" />
+            </p>
+        </form>*@
 
         <div class="row">
             <div class="col-md-3">

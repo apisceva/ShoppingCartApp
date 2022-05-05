@@ -1,4 +1,7 @@
-﻿namespace ShoppingCartApp.Repository.Entities
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Collections.Generic;
+
+namespace ShoppingCartApp.Repository.Entities
 {
     public class Product
     {
@@ -11,5 +14,6 @@
         public string ImageThumbnailUrl { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }
+       
     }
 }

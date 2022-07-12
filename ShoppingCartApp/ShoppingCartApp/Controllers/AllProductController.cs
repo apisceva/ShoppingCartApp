@@ -2,6 +2,7 @@
 using ShoppingCartApp.Repository;
 using ShoppingCartApp.Repository.Entities;
 using ShoppingCartApp.Repository.Interfaces;
+using ShoppingCartApp.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -10,11 +11,6 @@ namespace ShoppingCartApp.Controllers
     public class AllProductController : Controller
     {
         private readonly IProductRepository _productRepository;
-        //private AppDbContext Context { get; }
-        //public AllProductController(AppDbContext _context)
-        //{
-        //    this.Context = _context;
-        //}
 
         public AllProductController(IProductRepository productRepository)
         {
@@ -24,7 +20,9 @@ namespace ShoppingCartApp.Controllers
         public IActionResult Index()
         {
             var products = _productRepository.AllProducts;
+
             return View(products);
         }
+
     }
 }

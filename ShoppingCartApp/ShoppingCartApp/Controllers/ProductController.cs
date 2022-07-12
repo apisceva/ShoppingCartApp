@@ -91,6 +91,7 @@ namespace ShoppingCartApp.Controllers
 
             TempData["Categories"] = categoryListItems;
         }
-
+       
+        
     }
 }

@@ -33,7 +33,6 @@ namespace ShoppingCartApp.Controllers
             {
                 ModelState.AddModelError("", "Your cart is empty, add some products first");
             }
-
             if (ModelState.IsValid)
             {
                 _productListRepository.CreateProductList(productList);
@@ -42,7 +41,6 @@ namespace ShoppingCartApp.Controllers
             }
             return View(productList);
         }
-
         public IActionResult CheckoutComplete()
         {
             ViewBag.CheckoutCompleteMessage = "Thank you! Your product list is ready!";

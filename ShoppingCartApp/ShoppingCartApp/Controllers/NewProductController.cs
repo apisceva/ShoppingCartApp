@@ -20,12 +20,10 @@ namespace ShoppingCartApp.Controllers
             _productRepository = productRepository;
             _categoryRepository = categoryRepository;
         }
-
         public ActionResult Index()
         {
             return SetCategories();
         }
-
         private ActionResult SetCategories()
         {
             var allCategories = _categoryRepository.GetAllCategories.ToList();
@@ -63,24 +61,20 @@ namespace ShoppingCartApp.Controllers
                     CategoryId = newProduct.CategoryID,
                     ShortDescription = newProduct.ShortDescription,
                     LongDescription = newProduct.LongDescription,
-                    Price = newProduct.Price
-                   
+                    Price = newProduct.Price                  
                 };
 
                 _productRepository.AddNewProduct(p);
                 _productRepository.SaveChanges();
 
                 return RedirectToAction("ProductCreated");
-
             }
             SetCategories();
             return View("Index", newProduct);
         }
-
-
         public IActionResult ProductCreated()
         {
-            ViewBag.ProductCreatedMessage = "Thank you! Your product is created!";
+            ViewBag.ProductCreatedMessage = "Thank you! Your product is added!";
             return View();
         }
     }

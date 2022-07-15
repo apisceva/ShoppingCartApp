@@ -28,14 +28,32 @@ namespace ShoppingCartApp.Repository.Repositories.Fake
             throw new NotImplementedException();
         }
 
-
+        public void Delete(Product product)
+        {
+            throw new NotImplementedException();
+        }
 
         public Product GetProductById(int productId)
         {
             return AllProducts.FirstOrDefault(p => p.ProductId == productId);
         }
 
+        public void Remove(Product product)
+        {
+            throw new NotImplementedException();
+        }
+
         public void SaveChanges()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Product p)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update()
         {
             throw new NotImplementedException();
         }

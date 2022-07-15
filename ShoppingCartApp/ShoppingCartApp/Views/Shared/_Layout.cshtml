@@ -31,8 +31,8 @@
                         </li>
                         @await Component.InvokeAsync("CategoryMenu")
                         <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
-                        @await Component.InvokeAsync("ShoppingCartSummary")
                         <partial name="_LoginPartial" />
+                        @await Component.InvokeAsync("ShoppingCartSummary")
                     </ul>
                 </div>
             </div>

@@ -15,7 +15,6 @@ namespace ShoppingCartApp.Controllers
         {
             _productRepository = productRepository;
         }
-
         public IActionResult Index()
         {
             var homeViewModel = new HomeViewModel
@@ -24,8 +23,6 @@ namespace ShoppingCartApp.Controllers
             };
 
             return View(homeViewModel);
-        }
-
-        
+        }       
     }
 }

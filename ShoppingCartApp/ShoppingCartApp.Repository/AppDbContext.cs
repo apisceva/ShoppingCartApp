@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using ShoppingCartApp.Repository.Entities;
+using System;
 
 namespace ShoppingCartApp.Repository
 {
@@ -107,5 +108,6 @@ namespace ShoppingCartApp.Repository
             });
 
         }
+
     }
 }

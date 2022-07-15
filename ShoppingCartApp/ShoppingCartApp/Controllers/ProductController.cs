@@ -14,29 +14,14 @@ namespace ShoppingCartApp.Controllers
     {
         private readonly IProductRepository _productRepository;
         private readonly ICategoryRepository _categoryRepository;
-
         public ProductController(IProductRepository productRepository, ICategoryRepository categoryRepository)
         {
             _productRepository = productRepository;
             _categoryRepository = categoryRepository;
         }
-
-        // GET: /<controller>/
-        //public IActionResult List()
-        //{
-        //    //ViewBag.CurrentCategory = "Bakery";
-
-        //    //return View(_productRepository.AllProducts);
-        //    ProductsListViewModel productsListViewModel = new ProductsListViewModel();
-        //    productsListViewModel.Products = _productRepository.AllProducts;
-
-        //    productsListViewModel.CurrentCategory = "AllProducts";
-        //    return View(productsListViewModel);
-        //}
         public ViewResult List(string categoryId, string searchText)
         {
             SetCategories();
-
 
             IEnumerable<Product> products;
             string currentCategory;
@@ -59,8 +44,6 @@ namespace ShoppingCartApp.Controllers
                 CurrentCategory = currentCategory
             });
         }
-
-
         public IActionResult Details(int id)
         {
             var product = _productRepository.GetProductById(id);
@@ -90,8 +73,6 @@ namespace ShoppingCartApp.Controllers
             categoryListItems = categoryListItems.Prepend(emptySelectListItem).ToList();
 
             TempData["Categories"] = categoryListItems;
-        }
-       
-        
+        }       
     }
 }

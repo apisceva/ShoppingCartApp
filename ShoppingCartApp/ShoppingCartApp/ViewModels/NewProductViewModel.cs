@@ -6,10 +6,8 @@ namespace ShoppingCartApp.ViewModels
 {
     public class NewProductViewModel
     {
-        [BindNever]
-        public int NewProducttId { get; set; }
+        public int ProductId { get; set; }
         public string CurrentCategory { get; set; }
-
 
         [Required(ErrorMessage = "Please enter name of product")]
         [Display(Name = "Name")]
@@ -20,7 +18,6 @@ namespace ShoppingCartApp.ViewModels
         [Display(Name = "Category")]
         public int CategoryID { get; set; }
         
-
         [Required(ErrorMessage = "Please enter short description of product")]
         [StringLength(100)]
         [Display(Name = "Short description")]
@@ -40,11 +37,8 @@ namespace ShoppingCartApp.ViewModels
         //[Display(Name = "Image of product")]
         //public string File { get; set; }
 
-        
-
         [BindNever]
         [ScaffoldColumn(false)]
         public DateTime NewProductAdded { get; set; }
-
     }
 }

@@ -44,16 +44,8 @@ namespace ShoppingCartApp.Controllers
 
         public RedirectToActionResult RemoveFromCart(int shoppingCartItemId)
         {
-            //var selectedShoppingCartItem = _shoppingCart.ShoppingCartItems.FirstOrDefault(s => s.ShoppingCartItemId == shoppingCartItemId);
-
-            //if (selectedShoppingCartItem != null)
-            //{
-                
-            //}
             _shoppingCart.RemoveFromCart(shoppingCartItemId);
             return RedirectToAction("Index");
         }
-
-
     }
 }

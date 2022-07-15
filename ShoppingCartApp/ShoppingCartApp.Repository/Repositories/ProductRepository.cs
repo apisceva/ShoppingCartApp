@@ -39,6 +39,15 @@ namespace ShoppingCartApp.Repository.Repositories
         {
             _appDbContext.SaveChanges();
         }
+        public void Update(Product product)
+        {
+            _appDbContext.Products.Update(product);
+        }
+
+        public void Remove(Product product)
+        {
+            _appDbContext.Products.Remove(product);
+        }
     }
 }
 

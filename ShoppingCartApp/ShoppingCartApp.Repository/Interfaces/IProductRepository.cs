@@ -1,5 +1,6 @@
 ﻿using ShoppingCartApp.Repository.Entities;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ShoppingCartApp.Repository.Interfaces
 {
@@ -11,5 +12,6 @@ namespace ShoppingCartApp.Repository.Interfaces
         void SaveChanges();
         void Update(Product product);
         void Remove(Product product);
+      
     }
 }

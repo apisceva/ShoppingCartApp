@@ -38,6 +38,11 @@ namespace ShoppingCartApp.Repository.Repositories.Fake
             return AllProducts.FirstOrDefault(p => p.ProductId == productId);
         }
 
+        public void Remove(int productId)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Remove(Product product)
         {
             throw new NotImplementedException();

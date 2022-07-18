@@ -6,6 +6,7 @@ using ShoppingCartApp.Repository.Interfaces;
 using ShoppingCartApp.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace ShoppingCartApp.Controllers
 {
@@ -52,18 +53,30 @@ namespace ShoppingCartApp.Controllers
         }
 
         // POST
-        [HttpPost]
+        [HttpPost] //httpPut
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Product product)
+        public IActionResult Edit(NewProductViewModel productVM) //viewmodel
         {
             if (ModelState.IsValid)
             {
-                _productRepository.Remove(product);
+                var dbProduct = _productRepository.AllProducts.FirstOrDefault(s => s.ProductId == productVM.ProductId);
+                dbProduct.Name = productVM.Name;
+                dbProduct.ShortDescription = productVM.ShortDescription;
+                dbProduct.LongDescription = productVM.LongDescription;
+                dbProduct.Price = productVM.Price;
+                dbProduct.CategoryId = productVM.CategoryID;
+
+                _productRepository.Update(dbProduct); //update (viewmodel)
                 _productRepository.SaveChanges();
 
-                return RedirectToAction("Index");
-            }       
+                return RedirectToAction("ProductUpdated");
+            }      
             return View("Index");
+        }
+        public IActionResult ProductUpdated()
+        {
+            ViewBag.ProductUpdatedMessage = "Thank you! Product is updated successfully!";
+            return View();
         }
         private ActionResult SetCategories()
         {
@@ -88,41 +101,21 @@ namespace ShoppingCartApp.Controllers
             return View(new NewProductViewModel());
         }
 
-        //GET
-        public ActionResult Delete(int productId)
+        //Delete
+        [HttpGet] //to httpDelete (ajax call)
+        public IActionResult Delete(int productId) 
         {
-            SetCategories();
-
             var product = _productRepository.GetProductById(productId);
             if (product == null)
             {
                 return NotFound();
             }
-            var productViewModel = new NewProductViewModel()
-            {
-                Name = product.Name,
-                ProductId = product.ProductId,
-                CategoryID = product.CategoryId,
-                ShortDescription = product.ShortDescription,
-                LongDescription = product.LongDescription,
-                Price = product.Price,
-            };
-            return View("Delete", productViewModel);
-        }
-
-        //POST
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public IActionResult Delete(Product product)
-        {
-            if (ModelState.IsValid)
-            {
-                _productRepository.Remove(product);
-                _productRepository.SaveChanges();
+            _productRepository.Remove(product);   
+            _productRepository.SaveChanges();
 
                 return RedirectToAction("Index");
-            }
-            return View("Index");
+
         }
+      
     }
 }

@@ -23,7 +23,6 @@ namespace ShoppingCartApp.Repository.Repositories
             }
         }
 
-
         public Product GetProductById(int productId)
         {
             return _appDbContext.Products.FirstOrDefault(p => p.ProductId == productId);
@@ -48,6 +47,7 @@ namespace ShoppingCartApp.Repository.Repositories
         {
             _appDbContext.Products.Remove(product);
         }
+
     }
 }
 
